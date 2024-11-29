@@ -21,3 +21,6 @@ class GetTransactionsUseCase(
     }
 }
 
+class ObserveTransactionsUseCase(transactionRepository: TransactionRepository) {
+    val observe = transactionRepository.dataStateFlow
+}

@@ -39,6 +39,7 @@ import org.koin.compose.module.rememberKoinModules
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
+import ru.workinprogress.feature.chart.PieChart
 import ru.workinprogress.feature.chart.ui.ChartComponent
 import ru.workinprogress.feature.main.MainViewModel
 import ru.workinprogress.feature.main.ui.FiltersState.Companion.Past
@@ -266,7 +267,7 @@ private fun MainContent(
     onUpcomingToggle: (Boolean) -> Unit,
     onCategorySelected: (Category?) -> Unit
 ) {
-    val chart = remember { movableContentOf { ChartComponent() } }
+    val chart = remember { movableContentOf { PieChart() } }
     val futureInfo = remember(futureInformation) {
         movableContentOf {
             Column(

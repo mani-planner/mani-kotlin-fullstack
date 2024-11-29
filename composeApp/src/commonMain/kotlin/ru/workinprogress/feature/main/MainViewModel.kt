@@ -93,7 +93,7 @@ class MainViewModel(
                     filterUpcoming,
                     filterCategory
                 ) { transactions, categories, upcoming, category ->
-                    val simulationResult = transactions.run { simulate() }
+                    val simulationResult = transactions.simulate()
 
                     MainUiState(
                         loading = false,
@@ -191,12 +191,6 @@ class MainViewModel(
         }
     }
 
-    private fun Map<LocalDate, List<Transaction>>.sumByMonth(monthDate: LocalDate): Double =
-        this
-            .filter {
-                it.key.monthNumber == monthDate.monthNumber &&
-                        it.key.year == monthDate.year
-            }.flatMap { it.value }.sumOf { it.amountSigned }
 
     private fun buildFutureInformation(simulationResult: Map<LocalDate, List<Transaction>>) =
         buildAnnotatedString {

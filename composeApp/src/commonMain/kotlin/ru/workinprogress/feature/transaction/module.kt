@@ -9,6 +9,7 @@ import ru.workinprogress.feature.transaction.domain.*
 
 val transactionsModule = module {
     singleOf(::DeleteTransactionsUseCase)
+    singleOf(::ObserveTransactionsUseCase)
     singleOf(::GetTransactionsUseCase)
     singleOf(::GetTransactionUseCase)
     singleOf(::TransactionsNetworkDataSource)

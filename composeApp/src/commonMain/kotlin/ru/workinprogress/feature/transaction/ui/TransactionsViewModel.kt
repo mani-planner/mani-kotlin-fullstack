@@ -65,7 +65,7 @@ class TransactionsViewModel(
                     state.update { state -> state.copy(loading = false, data = emptyImmutableMap()) }
 
                     result.data.mapLatest { transactions ->
-                        transactions.run { simulate() }
+                        transactions.simulate()
                             .filterValues { transactions -> transactions.isNotEmpty() }
                             .filterKeys {
                                 today() > it
