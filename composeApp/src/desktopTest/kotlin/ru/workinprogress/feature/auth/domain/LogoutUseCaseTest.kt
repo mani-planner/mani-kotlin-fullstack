@@ -41,7 +41,7 @@ class LogoutUseCaseTest {
         logoutUseCase.invoke()
 
         assertTrue(tokenRepository.getToken().accessToken.isEmpty())
-        assertTrue(tokenRepository.getToken().refreshToken.isEmpty())
+        assertTrue(tokenRepository.getToken().refreshToken?.isEmpty() == true)
         assertTrue(transactionRepository.dataStateFlow.value.isEmpty())
     }
 

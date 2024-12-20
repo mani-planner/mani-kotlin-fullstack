@@ -1,7 +1,6 @@
 :root {
   color-scheme: light dark;
   --md-sys-color-primary: light-dark(#8F4C34,#FFB59C);
-
 }
 html, body {
     width: 100%;

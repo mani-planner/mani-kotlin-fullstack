@@ -40,7 +40,6 @@ fun App(
         navController.popBackStack()
     }
 ) {
-
     KoinApplication({
         modules(appModules + platformModules)
     }) {

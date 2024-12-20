@@ -13,7 +13,7 @@ version = "0.0.1-${providers.gradleProperty("BUILD_NUMBER").getOrElse("snapshot"
 application {
     mainClass.set("ru.workinprogress.mani.ApplicationKt")
     applicationDefaultJvmArgs =
-        listOf("-Dio.ktor.development=${extra["io.ktor.development"] ?: "false"}")
+        listOf("-Dio.ktor.development=${extra["io.ktor.development"] ?: "true"}")
 }
 
 dependencies {
@@ -34,12 +34,12 @@ dependencies {
 
     implementation(libs.mongodb.driver.kotlin.coroutine)
 
-    implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.koin.ktor)
     implementation(libs.koin.logger.slf4j)
 
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlin.test.junit)
+
     testImplementation(libs.koin.test)
     testImplementation(libs.koin.test.junit4)
 

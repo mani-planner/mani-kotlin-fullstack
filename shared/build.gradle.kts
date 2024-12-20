@@ -13,7 +13,7 @@ kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+            jvmTarget.set(JvmTarget.JVM_17)
         }
     }
 
@@ -58,29 +58,12 @@ kotlin {
     }
 }
 
-
-applyKtorWasmWorkaround("3.0.0-beta-2")
-
-fun Project.applyKtorWasmWorkaround(version: String) {
-    configurations.all {
-        if (name.startsWith("wasmJs")) {
-            resolutionStrategy.eachDependency {
-                if (requested.group.startsWith("io.ktor") &&
-                    requested.name.startsWith("ktor-")
-                ) {
-                    useVersion(version)
-                }
-            }
-        }
-    }
-}
-
 android {
     namespace = "ru.workinprogress.mani.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()

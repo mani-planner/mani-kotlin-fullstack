@@ -27,12 +27,12 @@ dependencyResolutionManagement {
         mavenCentral()
         // Desktop target has to add this repo
         maven("https://jogamp.org/deployment/maven")
-        maven("https://mvn.kotlin.website/")
+        maven("https://reposilite.kotlin.website/releases")
     }
 
     versionCatalogs {
         create("kotlinWrappers") {
-            val wrappersVersion = "0.0.1-pre.841"
+            val wrappersVersion = "0.0.1-pre.852"
             from("org.jetbrains.kotlin-wrappers:kotlin-wrappers-catalog:$wrappersVersion")
         }
     }

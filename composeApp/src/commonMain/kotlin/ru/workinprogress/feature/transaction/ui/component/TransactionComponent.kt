@@ -97,7 +97,7 @@ internal fun <T> ChipsSelector(
     showCreateNew: Boolean = false,
     onCreateNew: () -> Unit = {},
     onDelete: (T) -> Unit = {},
-    labelValue: @Composable (T) -> String = { it.toString() }
+    labelValue: @Composable (T) -> String = { it.toString() },
 ) {
     val markToDelete = remember { mutableStateOf<T?>(null) }
 
@@ -176,7 +176,8 @@ internal fun <T> ChipsSelector(
 
 @Composable
 private fun NewCategoryDialog(
-    showCreateCategoryDialog: MutableState<Boolean> = remember { mutableStateOf(false) }, onCreate: (String) -> Unit
+    showCreateCategoryDialog: MutableState<Boolean> = remember { mutableStateOf(false) },
+    onCreate: (String) -> Unit,
 ) {
     var newCategoryName by remember { mutableStateOf("") }
 
@@ -209,7 +210,7 @@ private fun NewCategoryDialog(
 
 @Composable
 fun CategoryDeleteDialog(
-    showDeleteDialog: Boolean, onDelete: () -> Unit, onDismiss: () -> Unit
+    showDeleteDialog: Boolean, onDelete: () -> Unit, onDismiss: () -> Unit,
 ) {
     if (showDeleteDialog) {
         AlertDialog(
@@ -244,7 +245,7 @@ private fun TransactionComponentImpl(onNavigateBack: () -> Unit) {
 internal fun TransactionComponentImpl(
     state: TransactionUiState,
     onAction: (TransactionAction) -> Unit,
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
 ) {
 
     var showCreateCategoryDialog = remember { mutableStateOf(false) }
@@ -437,6 +438,8 @@ internal fun TransactionComponentImpl(
                 }
             }
         }
+
+
 
         Column(modifier = Modifier.widthIn(max = 640.dp).align(Alignment.CenterHorizontally)) {
             AnimatedVisibility(state.amount.isNotBlank() && state.date.value != null) {

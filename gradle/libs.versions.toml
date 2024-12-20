@@ -1,8 +1,8 @@
 [versions]
 agp = "8.7.3"
-android-compileSdk = "34"
+android-compileSdk = "35"
 android-minSdk = "24"
-android-targetSdk = "34"
+android-targetSdk = "35"
 androidx-activityCompose = "1.9.3"
 androidx-appcompat = "1.7.0"
 androidx-constraintlayout = "2.1.4"
@@ -12,7 +12,7 @@ androidx-lifecycle = "2.8.4"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
 compose-multiplatform = "1.7.1"
-composeCharts = "0.0.17-js3"
+composeCharts = "0.0.17-js4"
 composeShimmer = "1.3.1"
 coreSplashscreen = "1.0.1"
 deFlapdoodleEmbedMongo = "4.18.1"
@@ -22,14 +22,14 @@ kotlin = "2.1.0"
 kotlinxCollectionsImmutable = "0.3.8"
 kotlinxDatetime = "0.6.1"
 kotlinxSerializationJson = "1.7.3"
-ktor = "2.3.12"
-ktorSwaggerUi = "3.6.0"
+ktor = "3.0.0"
+ktorSwaggerUi = "4.1.2"
 logback = "1.5.12"
 kotlinx-coroutines = "1.9.0"
-koinBom = "4.0.0"
+koinBom = "4.1.0-Beta1"
 mongodbDriverKotlinCoroutine = "5.2.1"
-multiplatformSettings = "1.2.0"
-navigationCompose = "2.8.0-alpha10"
+multiplatformSettings = "1.3.0"
+navigationCompose = "2.8.0-alpha11"
 preferenceKtx = "1.2.1"
 profileinstaller = "1.4.1"
 slf4jApi = "2.0.16"
@@ -55,7 +55,7 @@ compose-charts = { module = "io.github.ehsannarmani:compose-charts", version.ref
 compose-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.ref = "composeShimmer" }
 de-flapdoodle-embed-mongo = { module = "de.flapdoodle.embed:de.flapdoodle.embed.mongo", version.ref = "deFlapdoodleEmbedMongo" }
 desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
-koin-test-junit4 = { module = "io.insert-koin:koin-test-junit4" }
+koin-test-junit4 = { module = "io.insert-koin:koin-test-junit4", version.ref = "koinBom" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -81,7 +81,7 @@ ktor-server-cors = { module = "io.ktor:ktor-server-cors" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
-ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
+ktor-server-tests = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }
 
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
@@ -99,9 +99,9 @@ koin-compose = { module = "io.insert-koin:koin-compose" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
 koin-compose-viewmodel-navigation = { module = "io.insert-koin:koin-compose-viewmodel-navigation" }
 koin-android = { module = "io.insert-koin:koin-android" }
-koin-ktor = { module = "io.insert-koin:koin-ktor" }
-koin-logger-slf4j = { module = "io.insert-koin:koin-logger-slf4j" }
-koin-test = { module = "io.insert-koin:koin-test" }
+koin-ktor = { module = "io.insert-koin:koin-ktor3", version.ref = "koinBom" }
+koin-logger-slf4j = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koinBom" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koinBom" }
 
 mongodb-driver-kotlin-coroutine = { module = "org.mongodb:mongodb-driver-kotlin-coroutine", version.ref = "mongodbDriverKotlinCoroutine" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
@@ -117,8 +117,8 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
 androidx-benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "benchmarkMacroJunit4" }
 
-androidx-compose-ui-tooling = { group = "androidx.compose.ui", name ="ui-tooling", version.ref="compose-multiplatform" }
-androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name ="ui-tooling-preview", version.ref="compose-multiplatform" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose-multiplatform" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose-multiplatform" }
 androidx-ui-test-junit4-desktop = { group = "androidx.compose.ui", name = "ui-test-junit4-desktop", version.ref = "uiTestJunit4Desktop" }
 
 [plugins]
@@ -133,4 +133,3 @@ pluginSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", versio
 androidTest = { id = "com.android.test", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 baselineprofile = { id = "androidx.baselineprofile", version.ref = "baselineprofile" }
-buildkonfig = { id = "com.codingfeline.buildkonfig", version = "0.15.2" }

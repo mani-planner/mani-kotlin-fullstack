@@ -21,7 +21,7 @@ fun <T> NonParameterizedUseCase<T>.toDataState(dispatcher: CoroutineDispatcher =
 
 fun <P, T> UseCase<P, T>.toDataState(p: P, dispatcher: CoroutineDispatcher = Dispatchers.Default): Flow<DataState<T>> {
     return flow {
-        emit(DataState.Loading<T>())
+        emit(DataState.Loading())
 
         val result = withContext(dispatcher) {
             invoke(p)
